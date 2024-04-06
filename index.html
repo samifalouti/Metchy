@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Metchy</title>
+</head>
+<body>
+  <header class="header">
+    <img src="./icons/Menu.png" alt="Menu" class="icon-right" id="menu-icon">
+    <img src="./logo/Logo.png" alt="Logo" class="logo">
+    <img src="./icons/Cart.png" alt="Cart" class="icon-left" id="cart-icon">
+    <div class="cart-items" id="cart-items">0</div>
+  </header>
+  <div id="welcome" class="welcome">
+    <h2>Welcome To The World Of Perfume</h2>
+    <p>Welcome to Metchy, your ultimate destination for exquisite fragrances and luxurious scents. At Metchy, we believe that every scent tells a unique story, and we are dedicated to helping you find the perfect scent to match your personality and style.</p>
+    </div>
+  <div class="container">
+    <div id="products" class="products">
+      <h2>Products</h2>
+    </div>
+    <div class="card-container" id="carousel"></div>
+  </div>
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <a href="#" id="home-link" class="social-link">
+        <img src="./icons/Home.png" alt="Home">
+        <span>Home</span>
+      </a>
+      <a href="#" id="services-link" class="social-link">
+        <img src="./icons/Services.png" alt="Services">
+        <span>Services</span>
+      </a>
+      <a href="#" id="contact-link" class="social-link">
+        <img src="./icons/Contact.png" alt="Contact">
+        <span>Contact</span>
+      </a>
+      <a href="about.html" id="about-link" class="social-link">
+        <img src="./icons/About.png" alt="About Us">
+        <span>About us</span>
+      </a>      
+    </div>
+  </div>
+  <!-- HTML: Add a container for the cart window -->
+  <div class="cart-window" id="cart-window">
+    <div class="cart-items-container" id="cart-items-container">
+      <!-- Cart items will be dynamically added here -->
+      <div class="empty-cart-message" id="empty-cart-message">Empty Cart</div>
+    </div>
+    <div class="confirmation-form">
+        <input type="text" id="nameInput" placeholder="Your Name" required>
+        <input type="tel" id="phoneInput" placeholder="Your Phone Number" required>
+        <button id="confirmButton">Confirm</button>
+    </div>
+  </div>
+
+  <div id="about-us" class="about-us">
+    <h2>About Us</h2>
+    <p>With a curated collection of the finest perfumes from around the world, sourced from renowned fragrance houses, Metchy offers an unparalleled olfactory experience. Whether you're looking for a signature scent for yourself or a thoughtful gift for a loved one, our knowledgeable staff is here to guide you every step of the way.</p>
+    <p>At Metchy, we prioritize quality, authenticity, and customer satisfaction above all else. Our commitment to excellence extends from our product selection to our personalized customer service, ensuring that your shopping experience with us is nothing short of exceptional.</p>
+  </div>
+  
+
+  <footer class="footer">
+    <div class="container2">
+      <div class="container3">
+        <div class="logo-container">
+          <img src="./logo/logo2.png" alt="Logo" width="200" height="112">
+        </div>
+        <div class="social-container">
+          <a href="https://web.facebook.com/sami.falouti.7/" class="social-link"><img src="./icons/Facebook.png" alt="Facebook"></a>
+          <a href="#" class="social-link"><img src="./icons/Twitter.png" alt="Twitter"></a>
+          <a href="#" class="social-link"><img src="./icons/Instagram.png" alt="Instagram"></a>
+          <a href="#" class="social-link"><img src="./icons/LinkedIn.png" alt="LinkedIn"></a>
+          <a href="#" class="social-link"><img src="./icons/YouTube.png" alt="YouTube"></a>
+          <a href="#" class="social-link"><img src="./icons/TikTok.png" alt="TikTok"></a>
+        </div>
+        <div class="contact-info">
+          <a href="tel:+213781490228" class="Phone">+213781490228</a>
+          <a href="tel:+213549194814" class="Phone">+213549194814</a>
+          <a href="mailto:contact@metchy.com" class="Email">contact@metchy.com</a>
+      </div>      
+      </div>
+      <div class="container4">
+        <div class="contact-form-container">
+          <h3>Contact</h3>
+          <form id="contact-form" action="send_email.php" method="POST">
+            <div class="input-group">
+                <input type="text" id="fullNameInput" placeholder="Your Full Name" required>
+            </div>
+            <div class="input-group">
+                <input type="tel" id="numberInput" placeholder="Your Number" required>
+            </div>
+            <div class="input-group">
+                <textarea id="messageInput" placeholder="Write what you need from Metchy..." required></textarea>
+            </div>
+            <button type="submit" id="sendButton" disabled>Send</button>
+        </form>        
+        </div>
+      </div>
+    </div>
+    <p>&copy; 2024 Metchy. All rights reserved.</p>
+</footer>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
