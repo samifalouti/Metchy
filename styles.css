@@ -7,15 +7,13 @@ body {
     font-family: 'Alegreya', sans-serif;
 }
 
-/* Apply Alegreya font to specific elements */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Alegreya', sans-serif;
 }
 
-/* Header styles */
 .header {
     height: 70px;
-    background-color: #0D0D0D; /* Apply 40% opacity */
+    background-color: #0D0D0D; 
     border-bottom: 1px solid #3B3B3B;
     display: flex;
     justify-content: center;
@@ -28,7 +26,6 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1000;
 }
 
-/* Body styles */
 body {
     padding-top: 70px;
     background-color: #161616;
@@ -38,12 +35,10 @@ body {
     margin-right: 0;
 }
 
-/* Logo styles */
 .logo {
     width: 90px;
 }
 
-/* Icon styles */
 .icon-left {
     position: absolute;
     width: 22px;
@@ -58,7 +53,6 @@ body {
     right: 50px;
 }
 
-/* Container styles */
 .container {
     display: flex;
     flex-direction: column;
@@ -67,7 +61,6 @@ body {
     gap: 20px; 
 }
 
-/* Card container styles */
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -75,17 +68,15 @@ body {
     gap: 20px;
 }
 
-/* Card styles */
 .card {
     background-color: #000;
     box-shadow: 0 4px 7px rgba(75, 75, 75, 0.2);
     border-radius: 10px;
     width: 113px;
     height: 189px;
-    position: relative; /* Added position property */
+    position: relative; 
 }
 
-/* Media query for larger screens */
 @media only screen and (min-width: 768px) {
     .card {
         width: 150px; 
@@ -110,7 +101,6 @@ body {
     align-items: center;
   }  
 
-/* Card image styles */
 .card img {
     width: 100%;
     height: auto;
@@ -118,14 +108,12 @@ body {
     margin: 0 auto;
 }
 
-/* Price styles */
 .card .price {
     font-size: 14px;
     color: #48CB65;
     padding-left: 10px;
 }
 
-/* Title styles */
 .card .title {
     font-size: 10px;
     color: #fff; 
@@ -134,7 +122,6 @@ body {
     padding-bottom: 0px;
 }
 
-/* Button container styles */
 .buttons {
     display: flex;
     justify-content: space-between;
@@ -143,18 +130,16 @@ body {
     position: relative;
 }
 
-/* Counter styles */
 .counter {
     background-color: #000;
     color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 14px;
-    width: 24px; /* Adjust width as needed */
-    text-align: center; /* Center the text horizontally */
+    width: 24px; 
+    text-align: center; 
 }
 
-/* Add button styles */
 .add {
     background-color: #FFD700;
     color: #000;
@@ -170,7 +155,6 @@ body {
     margin-left: 10px;
 }
 
-/* Less button styles */
 .less {
     background-color: #FFD700;
     color: #000;
@@ -183,10 +167,9 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-right: 10px; /* Add padding-right */
+    margin-right: 10px; 
 }
 
-/* Cart items styles */
 .cart-items {
     background-color: #b81500;
     color: #ffffff;
@@ -204,7 +187,6 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* Add these styles to create the overlay */
 .overlay {
     position: fixed;
     top: 0;
@@ -373,15 +355,14 @@ button[type="submit"]:hover {
     opacity: 1;
 }
 
-/* CSS for cart window */
 .cart-window {
     position: fixed;
-    top: 72px; /* Adjust top position to make it appear below the header */
-    left: 0; /* Align to the left */
+    top: 72px; 
+    left: 0; 
     width: 300px;
-    height: 100%; /* Adjust width as needed */
-    max-height: calc(100% - 70px); /* Adjust max height based on header height */
-    overflow-y: auto; /* Add scrollbar if content exceeds max height */
+    height: 100%; 
+    max-height: calc(100% - 70px); 
+    overflow-y: auto; 
     background-color: #0D0D0D;
     padding: 20px;
     transform: translateX(-100%);
@@ -398,22 +379,20 @@ button[type="submit"]:hover {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding: 20px; /* Add padding to the container */
-    max-width: 250px; /* Ensure the container doesn't exceed the viewport width */
-    overflow: auto; /* Add scrollbar if content exceeds container width */
+    padding: 20px; 
+    max-width: 250px; 
+    overflow: auto; 
 }
 
-/* Style for "Empty Cart" message */
 .empty-cart-message {
     color: gray;
     text-align: center;
     font-size: 16px;
     padding: 100px 0;
-    display: none; /* Initially hidden */
+    display: none; 
 }
 
 
-/* CSS for confirmation form */
 .confirmation-form input {
     width: 278px;
     padding: 10px;
@@ -439,7 +418,7 @@ button[type="submit"]:hover {
 }
 
 .remove {
-    background-color: rgb(109, 109, 109); /* Gray color */
+    background-color: rgb(109, 109, 109); 
     color: white;
     border-radius: 50%;
     cursor: pointer;
@@ -456,10 +435,9 @@ button[type="submit"]:hover {
   
   .remove:hover {
     color: #000;
-    background-color: #FFD700; /* Gold color on hover */
+    background-color: #FFD700; 
   }
   
-  /* CSS for the About Us section */
 .about-us {
     margin: 50px auto;
     max-width: 800px;
