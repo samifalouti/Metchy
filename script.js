@@ -59,7 +59,7 @@ confirmButton.addEventListener('click', () => {
   if (name !== '' && phone !== '' && totalItems > 0) {
       const emailBody = `Name: ${name}\nPhone Number: ${phone}\nTotal Items: ${totalItems}`;
       
-      fetch('send_email.php', {
+      fetch('YOUR_EMAIL_SERVICE_API_ENDPOINT', {
           method: 'POST',
           body: JSON.stringify({ 
               email: 'samifalouti02@gmail.com', 
@@ -182,7 +182,7 @@ function updateCart(action, counter) {
     removeButton.addEventListener('click', () => removeCardFromWindow(copiedCard, counter));
   } else if (action === 'remove' && itemCount > 0) {
     counter.value = itemCount - 1;
-    const productId = card.dataset.productId; 
+    const productId = card.dataset.productId; // Get the product ID from the card
     const copiedCard = document.querySelector(`.copied-card[data-product-id="${productId}"]`);
     if (copiedCard) {
       copiedCard.remove();
@@ -267,11 +267,11 @@ function validateForm() {
 }
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault(); 
+  event.preventDefault(); // Prevent the default form submission
 
   const formData = new FormData(this);
 
-  fetch('send_email.php', {
+  fetch('YOUR_EMAIL_SERVICE_API_ENDPOINT', {
       method: 'POST',
       body: formData
   })
@@ -289,10 +289,12 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   });
 });
 
+
 document.addEventListener('DOMContentLoaded', function() {
   const homeLink = document.querySelector('a[href="#"]');
   const homeSection = document.getElementById('home');
 
+  // Function to handle smooth scrolling to the home section
   const scrollToHome = (event) => {
     event.preventDefault();
     const homePosition = homeSection.getBoundingClientRect().top;
@@ -309,6 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const servicesLink = document.querySelector('a[href="#services"]');
   const servicesSection = document.getElementById('services');
 
+  // Function to handle smooth scrolling to the services section
   const scrollToServices = (event) => {
     event.preventDefault();
     const servicesPosition = servicesSection.getBoundingClientRect().top;
@@ -325,6 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const contactLink = document.getElementById('contact-link');
   const footer = document.querySelector('footer');
 
+  // Function to handle smooth scrolling to the footer
   const scrollToFooter = (event) => {
     event.preventDefault();
     const footerPosition = footer.getBoundingClientRect().top;
@@ -353,3 +357,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   aboutLink.addEventListener('click', scrollToAbout);
 });
+
