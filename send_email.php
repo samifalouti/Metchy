@@ -22,7 +22,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $emailMessage .= "Phone Number: $number\n";
     $emailMessage .= "Message:\n$message";
 
-    if (mail($to, $subject, $emailMessage)) {
+    // Additional headers
+    $headers = "From: your-email@example.com" . "\r\n";
+    $headers .= "Reply-To: $number" . "\r\n";
+
+    if (mail($to, $subject, $emailMessage, $headers)) {
         http_response_code(200);
         echo "Email sent successfully!";
     } else {
