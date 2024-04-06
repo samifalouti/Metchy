@@ -30,24 +30,20 @@ const sendButton = document.getElementById('sendButton');
 const contactButton = document.querySelector('.social-link[href="#"]');
 const footer = document.querySelector('footer');
 
-// Define menuIcon here
 menuIcon.addEventListener('click', () => {
   overlay.style.width = overlay.style.width === '190px' ? '0' : '190px';
 });
 
-// Close overlay when clicking outside
 window.addEventListener('click', (event) => {
   if (event.target !== overlay && event.target !== menuIcon) {
     overlay.style.width = '0';
   }
 });
 
-// Toggle cart window function
 cartIcon.addEventListener('click', () => {
   cartWindow.classList.toggle('show');
 });
 
-// Close cart window when clicking outside
 window.addEventListener('click', (event) => {
   if (!cartWindow.contains(event.target) && event.target !== cartIcon) {
     cartWindow.classList.remove('show');
@@ -58,15 +54,11 @@ confirmButton.addEventListener('click', () => {
   const name = nameInput.value.trim();
   const phone = phoneInput.value.trim();
   
-  // Get the total number of items (cards) in the window
   const totalItems = document.querySelectorAll('.copied-card').length;
   
-  // Check if all required fields are filled
   if (name !== '' && phone !== '' && totalItems > 0) {
-      // Prepare the email body
       const emailBody = `Name: ${name}\nPhone Number: ${phone}\nTotal Items: ${totalItems}`;
       
-      // Send the email
       fetch('send_email.php', {
           method: 'POST',
           body: JSON.stringify({ 
@@ -79,13 +71,10 @@ confirmButton.addEventListener('click', () => {
       })
       .then(response => {
           if (response.ok) {
-              // Form submission successful
               alert('Email sent successfully!');
-              // Optionally, reset the form
               nameInput.value = '';
               phoneInput.value = '';
           } else {
-              // Form submission failed
               alert('Failed to send email. Please try again later.');
           }
       })
@@ -94,17 +83,15 @@ confirmButton.addEventListener('click', () => {
           alert('An error occurred while sending the email. Please try again later.');
       });
   } else {
-      // Show an error message if any of the fields are empty or there are no items in the window
       alert('Please fill in all the fields and add items to the cart.');
   }
 });
 
 
-// Function to add item to the cart
 function createCard(product) {
   const card = document.createElement('div');
   card.classList.add('card');
-  card.dataset.productId = product.name; // Set data attribute for product ID
+  card.dataset.productId = product.name; 
 
   const img = document.createElement('img');
   img.src = product.image;
@@ -134,7 +121,7 @@ function createCard(product) {
   const lessButton = document.createElement('button');
   lessButton.classList.add('less');
   lessButton.textContent = '-';
-  lessButton.style.opacity = '0.5'; // Set initial opacity to 50%
+  lessButton.style.opacity = '0.5'; 
   
   fullNameInput.addEventListener('input', validateForm);
   numberInput.addEventListener('input', validateForm);
@@ -152,14 +139,12 @@ function createCard(product) {
   return card;
 }
 
-// Define the createCardContainer function here
 function createCardContainer() {
   const container = document.createElement('div');
   container.classList.add('card-container');
   return container;
 }
 
-// Split products into groups of 3
 const productGroups = products.reduce((acc, product) => {
   const groupIndex = Math.floor(acc.length / 3);
   if (!acc[groupIndex]) {
@@ -169,7 +154,6 @@ const productGroups = products.reduce((acc, product) => {
   return acc;
 }, []);
 
-// Create card containers and append cards to them
 productGroups.forEach(group => {
   const cardContainer = createCardContainer();
   group.forEach(product => {
@@ -179,7 +163,6 @@ productGroups.forEach(group => {
   carousel.appendChild(cardContainer);
 });
 
-// Define the updateCart function here
 function updateCart(action, counter) {
   const itemCount = parseInt(counter.value);
   const card = counter.parentElement.parentElement;
@@ -194,13 +177,12 @@ function updateCart(action, counter) {
     const removeButton = document.createElement('button');
     removeButton.classList.add('remove');
     removeButton.textContent = 'X';
-    copiedCard.appendChild(removeButton); // Add the "X" button to the copied card
+    copiedCard.appendChild(removeButton); 
     
-    // Add event listener to the "X" button
     removeButton.addEventListener('click', () => removeCardFromWindow(copiedCard, counter));
   } else if (action === 'remove' && itemCount > 0) {
     counter.value = itemCount - 1;
-    const productId = card.dataset.productId; // Get the product ID from the card
+    const productId = card.dataset.productId; 
     const copiedCard = document.querySelector(`.copied-card[data-product-id="${productId}"]`);
     if (copiedCard) {
       copiedCard.remove();
@@ -211,7 +193,6 @@ function updateCart(action, counter) {
   updateCartIcon();
 }
 
-// Event listener setup for add and less buttons
 const buttons = document.querySelectorAll('.add, .less');
 buttons.forEach(button => {
   button.addEventListener('click', () => {
@@ -224,21 +205,17 @@ buttons.forEach(button => {
 function removeCardFromWindow(card, counter) {
   const itemCount = parseInt(counter.value);
   
-  // If the card counter is 1, decrement the opacity of the less button
   if (itemCount === 1) {
     const lessButton = counter.parentElement.querySelector('.less');
     lessButton.style.opacity = '0.5';
   }
   
-  // Decrement both the card counter and the cart counter
-  counter.value = Math.max(itemCount - 1, 0); // Ensure the counter doesn't go below 0
-  updateCartIcon(); // Update the cart counter
+  counter.value = Math.max(itemCount - 1, 0); 
+  updateCartIcon(); 
   
-  // Remove the card from the window
   card.remove();
 }
 
-// Event listener setup for the "X" button
 document.querySelectorAll('.remove').forEach(removeButton => {
   removeButton.addEventListener('click', () => {
     const card = removeButton.parentElement;
@@ -247,14 +224,12 @@ document.querySelectorAll('.remove').forEach(removeButton => {
 });
 
 
-// Define the updateCartIcon function here
 function updateCartIcon() {
   let totalCount = 0;
   document.querySelectorAll('.counter').forEach(counter => {
       totalCount += parseInt(counter.value);
   });
   cartItems.textContent = totalCount;
-  // Show or hide "Empty Cart" message based on total count
   const emptyCartMessage = document.getElementById('empty-cart-message');
   if (totalCount === 0) {
       emptyCartMessage.style.display = 'block';
@@ -263,59 +238,48 @@ function updateCartIcon() {
   }
 }
 
-// Define the updateButtonOpacity function here
 function updateButtonOpacity(counter) {
   const lessButton = counter.parentElement.querySelector('.less');
   const addButton = counter.parentElement.querySelector('.add');
   const itemCount = parseInt(counter.value);
   
   if (itemCount === 0) {
-      lessButton.style.opacity = '0.5'; // Less button opacity 50%
+      lessButton.style.opacity = '0.5'; 
   } else {
-      lessButton.style.opacity = '1'; // Less button opacity 100%
+      lessButton.style.opacity = '1'; 
   }
   
   if (itemCount === 10) {
-      addButton.style.opacity = '0.5'; // Add button opacity 50%
+      addButton.style.opacity = '0.5'; 
   } else {
-      addButton.style.opacity = '1'; // Add button opacity 100%
+      addButton.style.opacity = '1'; 
   }
 }
 
-// Define the validateForm function here
 function validateForm() {
-  // Check if all required fields are filled
   if (fullNameInput.value.trim() !== '' && numberInput.value.trim() !== '' && messageInput.value.trim() !== '') {
-      // Enable the "Send" button
       sendButton.disabled = false;
       sendButton.style.opacity = 1;
   } else {
-      // Disable the "Send" button
       sendButton.disabled = true;
       sendButton.style.opacity = 0.5;
   }
 }
 
-// Define the event listener for the form submission here
 document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission
+  event.preventDefault(); 
 
-  // Get the form data
   const formData = new FormData(this);
 
-  // Send the form data to the server
   fetch('send_email.php', {
       method: 'POST',
       body: formData
   })
   .then(response => {
       if (response.ok) {
-          // Form submission successful
           alert('Form submitted successfully!');
-          // Optionally, reset the form
           this.reset();
       } else {
-          // Form submission failed
           alert('Form submission failed. Please try again later.');
       }
   })
@@ -329,7 +293,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const homeLink = document.querySelector('a[href="#"]');
   const homeSection = document.getElementById('home');
 
-  // Function to handle smooth scrolling to the home section
   const scrollToHome = (event) => {
     event.preventDefault();
     const homePosition = homeSection.getBoundingClientRect().top;
@@ -339,7 +302,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
-  // Add click event listener to the home link
   homeLink.addEventListener('click', scrollToHome);
 });
 
@@ -347,7 +309,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const servicesLink = document.querySelector('a[href="#services"]');
   const servicesSection = document.getElementById('services');
 
-  // Function to handle smooth scrolling to the services section
   const scrollToServices = (event) => {
     event.preventDefault();
     const servicesPosition = servicesSection.getBoundingClientRect().top;
@@ -357,7 +318,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
-  // Add click event listener to the services link
   servicesLink.addEventListener('click', scrollToServices);
 });
 
@@ -365,7 +325,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const contactLink = document.getElementById('contact-link');
   const footer = document.querySelector('footer');
 
-  // Function to handle smooth scrolling to the footer
   const scrollToFooter = (event) => {
     event.preventDefault();
     const footerPosition = footer.getBoundingClientRect().top;
@@ -375,7 +334,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
-  // Add click event listener to the contact link
   contactLink.addEventListener('click', scrollToFooter);
 });
 
@@ -384,7 +342,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const aboutLink = document.querySelector('a[href="#about-link"]');
   const aboutSection = document.getElementById('about-us');
 
-  // Function to handle smooth scrolling to the about section
   const scrollToAbout = (event) => {
     event.preventDefault();
     const aboutPosition = aboutSection.getBoundingClientRect().top + window.scrollY;
@@ -394,6 +351,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
-  // Add click event listener to the about link
   aboutLink.addEventListener('click', scrollToAbout);
 });
