@@ -53,6 +53,7 @@
         <button id="confirmButton">Confirm</button>
     </div>
   </div>
+
   <div id="about-us" class="about-us">
     <h2>About Us</h2>
     <p>With a curated collection of the finest perfumes from around the world, sourced from renowned fragrance houses, Metchy offers an unparalleled olfactory experience. Whether you're looking for a signature scent for yourself or a thoughtful gift for a loved one, our knowledgeable staff is here to guide you every step of the way.</p>
@@ -83,17 +84,11 @@
       <div class="container4">
         <div class="contact-form-container">
           <h3>Contact</h3>
-          <form id="contact-form" action="send_email.php" method="POST">
-            <div class="input-group">
-                <input type="text" id="fullNameInput" placeholder="Your Full Name" required>
-            </div>
-            <div class="input-group">
-                <input type="tel" id="numberInput" placeholder="Your Number" required>
-            </div>
-            <div class="input-group">
-                <textarea id="messageInput" placeholder="Write what you need from Metchy..." required></textarea>
-            </div>
-            <button type="submit" id="sendButton" disabled>Send</button>
+          <form id="contact-form" action="https://formsubmit.co/samifalouti02@gmail.com" method="POST">
+                <input type="text" id="fullNameInput" name="name" required placeholder="Full Name">
+                <input type="tel" id="numberInput" name="number" required placeholder="Number Phone">
+                <textarea id="messageInput" name="msg" required placeholder="Write what you need from Metchy..."></textarea>
+                <button type="submit" id="sendButton" disabled>Send</button>
         </form>        
         </div>
       </div>
@@ -103,5 +98,8 @@
 
   
   <script src="script.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </body>
 </html>
