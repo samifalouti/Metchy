@@ -50,43 +50,6 @@ window.addEventListener('click', (event) => {
   }
 });
 
-confirmButton.addEventListener('click', () => {
-  const name = nameInput.value.trim();
-  const phone = phoneInput.value.trim();
-  
-  const totalItems = document.querySelectorAll('.copied-card').length;
-  
-  if (name !== '' && phone !== '' && totalItems > 0) {
-      const emailBody = `Name: ${name}\nPhone Number: ${phone}\nTotal Items: ${totalItems}`;
-      
-      fetch('YOUR_EMAIL_SERVICE_API_ENDPOINT', {
-          method: 'POST',
-          body: JSON.stringify({ 
-              email: 'samifalouti02@gmail.com', 
-              body: emailBody 
-          }),
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      })
-      .then(response => {
-          if (response.ok) {
-              alert('Email sent successfully!');
-              nameInput.value = '';
-              phoneInput.value = '';
-          } else {
-              alert('Failed to send email. Please try again later.');
-          }
-      })
-      .catch(error => {
-          console.error('Error:', error);
-          alert('An error occurred while sending the email. Please try again later.');
-      });
-  } else {
-      alert('Please fill in all the fields and add items to the cart.');
-  }
-});
-
 
 function createCard(product) {
   const card = document.createElement('div');
