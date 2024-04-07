@@ -266,29 +266,6 @@ function validateForm() {
   }
 }
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission
-
-  const formData = new FormData(this);
-
-  fetch('YOUR_EMAIL_SERVICE_API_ENDPOINT', {
-      method: 'POST',
-      body: formData
-  })
-  .then(response => {
-      if (response.ok) {
-          alert('Form submitted successfully!');
-          this.reset();
-      } else {
-          alert('Form submission failed. Please try again later.');
-      }
-  })
-  .catch(error => {
-      console.error('Error:', error);
-      alert('An error occurred while submitting the form. Please try again later.');
-  });
-});
-
 
 document.addEventListener('DOMContentLoaded', function() {
   const homeLink = document.querySelector('a[href="#"]');
@@ -357,4 +334,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
   aboutLink.addEventListener('click', scrollToAbout);
 });
-
