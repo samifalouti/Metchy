@@ -326,6 +326,7 @@ body {
 }
 
 .contact-form-container input {
+    font-family: 'Alegreya';
     width: 340px;
     padding-left: 10px;
     color: #fff;
@@ -337,6 +338,7 @@ body {
 }
 
 .contact-form-container textarea {
+    font-family: 'Alegreya';
     width: 340px;
     padding-left: 10px;
     color: #fff;
@@ -359,6 +361,7 @@ textarea:focus {
 }
 
 button[type="submit"] {
+    font-family: 'Alegreya';
     width: 340px;
     height: 50px;
     background-color: #FFD700;
@@ -417,6 +420,7 @@ button[type="submit"]:hover {
 
 
 .confirmation-form input {
+    font-family: 'Alegreya';
     width: 278px;
     padding: 10px;
     margin-bottom: 10px;
@@ -427,6 +431,7 @@ button[type="submit"]:hover {
 }
 
 .confirmation-form button {
+    font-family: 'Alegreya';
     width: 100%;
     padding: 10px;
     background-color: #FFD700;
